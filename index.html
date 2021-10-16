@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>HW: Search Engine</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/styles.css">
+   
+  </head>
+  <body>
+    <div class="container">
+      
+      <form id="search-form">
+          <input
+            type="text" class="city-name" 
+            placeholder="Enter city name"
+            autocomplete="off"
+            autofocus="on"
+            id="search-text-input"
+          />
+        <input type="submit" class="submit-btn" input="search"/>
+      </form>
+<h1>CURRENTLY IN</h1>
+<h2>NEW YORK CITY</h2>
+<h3></h3>
+<div class="row">
+  <div class="col-6">
+    <span id="temperature">90°F 🌤</span>
+  </div>
+<div class="col-6">
+  <ul>
+    <li class="main-day">MONDAY</li>
+    <li>SUNNY</li>
+  <li>PRECIPITATION: 0%</li>
+  <li>WIND: 3 MPH</li>
+</ul>  
+</div>
+</div>
+
+  <div class="row">
+    <div class="col">
+      <span class="day">TUE</span>
+      <br/>
+      🌤
+      <br/>
+      90°F
+    </div>
+    <div class="col">
+      <span class="day">WED</span>
+      <br/>
+      🌧
+      <br/>
+      83°F
+    </div>
+    <div class="col">
+      <span class="day">THU</span>
+      <br/>
+      🌧
+      <br/>
+      80°F
+    </div>
+    <div class="col">
+      <span class="day">FRI</span>
+      <br/>
+      🌤
+      <br/>
+      85°F
+    </div>
+    <div class="col">
+      <span class="day">SAT</span>
+      <br/>
+      🌤
+      <br/>
+      82°F
+  </div>
+
+</div>
+<script src="src/script.js"></script>
+  </body>
+</html>
