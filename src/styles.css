@@ -92,6 +92,7 @@ img {
 ul {
   text-align: right;
   margin-right: 60px;
+  text-transform: capitalize;
 }
 
 .main-day {

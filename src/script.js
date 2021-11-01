@@ -23,8 +23,18 @@ function search(event) {
   axios.get(`${apiURL}&appid=${apiKey}`).then(showTemperature);
 }
 
-let form = document.querySelector("#search-form");
-form.addEventListener("submit", search);
+function showMetricTemp(event) {
+  event.preventDefault();
+  let metricTemp = ((imperialTemp - 32) * 5) / 9;
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(metricTemp);
+}
+
+function showImperialTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(imperialTemp);
+}
 
 function showTemperature(response) {
   let wholeTemp = Math.round(response.data.main.temp);
@@ -33,12 +43,25 @@ function showTemperature(response) {
   let descElement = document.querySelector("#desc");
   let windElement = document.querySelector("#wind");
 
+  imperialTemp = response.data.main.temp;
+
   temperatureElement.innerHTML = `${wholeTemp}`;
   descElement.innerHTML = response.data.weather[0].description;
-  windElement.innerHTML = `Wind: ${Math.round(response.data.wind.speed)} mph`;
+  windElement.innerHTML = `Wind: ${Math.round(response.data.wind.speed)} MPH`;
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", search);
+
+let imperialTemp = null;
+
+let metricLink = document.querySelector("#metric-link");
+metricLink.addEventListener("click", showMetricTemp);
+
+let imperialLink = document.querySelector("#imperial-link");
+imperialLink.addEventListener("click", showImperialTemp);
