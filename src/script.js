@@ -29,5 +29,16 @@ form.addEventListener("submit", search);
 function showTemperature(response) {
   let wholeTemp = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = `${wholeTemp}°F`;
+  let iconElement = document.querySelector("#icon");
+  let descElement = document.querySelector("#desc");
+  let windElement = document.querySelector("#wind");
+
+  temperatureElement.innerHTML = `${wholeTemp}`;
+  descElement.innerHTML = response.data.weather[0].description;
+  windElement.innerHTML = `Wind: ${Math.round(response.data.wind.speed)} mph`;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
