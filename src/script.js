@@ -7,7 +7,7 @@ let day = days[now.getDay()];
 let hours = now.getHours();
 let minutes = now.getMinutes();
 
-h3.innerHTML = `${day}, ${hours}:${minutes}`;
+h3.innerHTML = `${day} ${hours}:${minutes}`;
 
 function search(event) {
   event.preventDefault();
