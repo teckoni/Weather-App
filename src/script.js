@@ -25,13 +25,17 @@ function search(event) {
 
 function showMetricTemp(event) {
   event.preventDefault();
-  let metricTemp = ((imperialTemp - 32) * 5) / 9;
   let temperatureElement = document.querySelector("#temperature");
+  metricLink.classList.remove("active");
+  imperialLink.classList.add("active");
+  let metricTemp = ((imperialTemp - 32) * 5) / 9;
   temperatureElement.innerHTML = Math.round(metricTemp);
 }
 
 function showImperialTemp(event) {
   event.preventDefault();
+  metricLink.classList.remove("active");
+  imperialLink.classList.add("active");
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(imperialTemp);
 }

@@ -85,6 +85,15 @@ h3 {
   top: -35px;
 }
 
+.weather .active {
+  color: #47597e;
+  cursor: default;
+}
+
+.weather .active:hover {
+  text-decoration: none;
+}
+
 img {
   margin-bottom: 40px;
 }
