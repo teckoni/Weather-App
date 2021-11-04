@@ -125,3 +125,8 @@ li {
 .forecast-day {
   font-weight: bold;
 }
+
+.open-source {
+  text-align: center;
+  font-size: 12px;
+}
