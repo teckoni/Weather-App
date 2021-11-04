@@ -26,8 +26,8 @@ function search(event) {
 function showMetricTemp(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
-  metricLink.classList.remove("active");
-  imperialLink.classList.add("active");
+  imperialLink.classList.remove("active");
+  metricLink.classList.add("active");
   let metricTemp = ((imperialTemp - 32) * 5) / 9;
   temperatureElement.innerHTML = Math.round(metricTemp);
 }

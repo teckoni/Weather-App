@@ -62,9 +62,10 @@ h1 {
 }
 
 h2 {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   font-size: 33px;
   text-transform: capitalize;
+  line-height: 28px;
 }
 
 h3 {
@@ -85,13 +86,13 @@ h3 {
   top: -35px;
 }
 
+#degrees a {
+  text-decoration: none;
+}
+
 .weather .active {
   color: #47597e;
   cursor: default;
-}
-
-.weather .active:hover {
-  text-decoration: none;
 }
 
 img {
