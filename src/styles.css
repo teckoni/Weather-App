@@ -95,7 +95,7 @@ h3 {
   cursor: default;
 }
 
-img {
+#icon {
   margin-bottom: 40px;
 }
 
@@ -124,6 +124,16 @@ li {
 
 .forecast-day {
   font-weight: bold;
+  text-align: center;
+}
+
+#forecastIcon {
+  padding-left: 25px;
+  width: 80px;
+}
+
+.forecast-temp {
+  text-align: center;
 }
 
 .open-source {
