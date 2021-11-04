@@ -23,6 +23,28 @@ function search(event) {
   axios.get(`${apiURL}&appid=${apiKey}`).then(showTemperature);
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let forecastDays = ["Thu", "Fri", "Sat", "Sun"];
+  forecastDays.forEach(function (days) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="col-2">
+      <div class="forecast-day">${days}</div>
+      <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weatherIcon" width="60px"/>
+      <div class="forecast-temp">90°F</div>
+    </div>
+`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function showMetricTemp(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
@@ -61,6 +83,8 @@ function showTemperature(response) {
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", search);
+
+displayForecast();
 
 let imperialTemp = null;
 

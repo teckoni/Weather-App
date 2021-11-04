@@ -41,7 +41,7 @@ form {
 .submit-btn:hover {
   border: 1px solid;
   border-color: #bbbfca;
-  background: #87a7b3;
+  background: #95a5ac;
   padding: 5px 15px;
   border-radius: 8px;
   font-size: 12px;
@@ -122,6 +122,6 @@ li {
   margin-bottom: 30px;
 }
 
-.day {
+.forecast-day {
   font-weight: bold;
 }
