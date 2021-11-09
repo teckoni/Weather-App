@@ -14,6 +14,9 @@ let days = [
 let day = days[now.getDay()];
 let hours = now.getHours();
 let minutes = now.getMinutes();
+if (minutes < 10) {
+  minutes = `0${minutes}`;
+}
 
 h3.innerHTML = `${day} ${hours}:${minutes}`;
 
@@ -73,23 +76,6 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 
-function showMetricTemp(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  imperialLink.classList.remove("active");
-  metricLink.classList.add("active");
-  let metricTemp = ((imperialTemp - 32) * 5) / 9;
-  temperatureElement.innerHTML = Math.round(metricTemp);
-}
-
-function showImperialTemp(event) {
-  event.preventDefault();
-  metricLink.classList.remove("active");
-  imperialLink.classList.add("active");
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(imperialTemp);
-}
-
 function getForecast(coordinates) {
   let apiKey = "f5dbd36ee03d5ec52c5fe18269ecf5a2";
   let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
@@ -120,8 +106,22 @@ function showTemperature(response) {
   getForecast(response.data.coord);
 }
 
-let form = document.querySelector("#search-form");
-form.addEventListener("submit", search);
+function showMetricTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  imperialLink.classList.remove("active");
+  metricLink.classList.add("active");
+  let metricTemp = ((imperialTemp - 32) * 5) / 9;
+  temperatureElement.innerHTML = Math.round(metricTemp);
+}
+
+function showImperialTemp(event) {
+  event.preventDefault();
+  metricLink.classList.remove("active");
+  imperialLink.classList.add("active");
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(imperialTemp);
+}
 
 let imperialTemp = null;
 
@@ -130,3 +130,6 @@ metricLink.addEventListener("click", showMetricTemp);
 
 let imperialLink = document.querySelector("#imperial-link");
 imperialLink.addEventListener("click", showImperialTemp);
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", search);
